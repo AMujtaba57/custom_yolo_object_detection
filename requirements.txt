@@ -5,4 +5,4 @@ Requests
 streamlit
 torch
 ultralytics
-libgl1
+libgl1-mesa-glx
