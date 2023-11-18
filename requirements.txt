@@ -5,3 +5,4 @@ Requests
 streamlit
 torch
 ultralytics
+libgl1
