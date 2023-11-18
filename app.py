@@ -1,6 +1,6 @@
 import streamlit as st
 import requests
-import io
+import io, cv2
 import numpy as np
 from ultralytics import YOLO
 import torch
@@ -37,7 +37,12 @@ def detect_objects(img):
             x_max = int(round(box[2], 2))
             y_max = int(round(box[3], 2))
 
-            st.success(f"Class Name: {class_name[int(cls_val)]} - Confidence Score: {round(conf_val.item(), 2)} - Bboxes: {x_min, y_min, x_max, y_max}")
+            # st.success(f"Class Name: {class_name[int(cls_val)]} - Confidence Score: {round(conf_val.item(), 2)} - Bboxes: {x_min, y_min, x_max, y_max}")
+
+            cv2.rectangle(img_copy, (x_min, y_min), (x_max, y_max), (0, 255, 0), 2)
+            label = f"{class_name[int(cls_val)]} ({round(conf_val.item(), 2)})"
+            cv2.putText(img_copy, label, (x_min, y_min - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
+            
     return img_copy
 
 
