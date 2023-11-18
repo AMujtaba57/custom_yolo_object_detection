@@ -30,15 +30,18 @@ def detect_objects(img):
         cls = result.boxes.cls
 
         boxes = boxes.tolist()
-        for box, conf_val, cls_val in zip(boxes, conf, cls):
-            x_min = int(box[0])
-            y_min = int(box[1])
-            x_max = int(box[2])
-            y_max = int(box[3])
 
-            cv2.rectangle(img_copy, (x_min, y_min), (x_max, y_max), (0, 255, 0), 2)
-            label = f"{class_name[int(cls_val)]} ({round(conf_val.item(), 2)})"
-            cv2.putText(img_copy, label, (x_min, y_min - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
+        
+        for box, conf_val, cls_val in zip(boxes, conf, cls):
+            x_min = int(round(box[0], 2))
+            y_min = int(round(box[1], 2))
+            x_max = int(round(box[2], 2))
+            y_max = int(round(box[3], 2))
+
+            st.success(f"Class Name: {class_name[int(cls_val)]} - Confidence Score: {round(conf_val.item(), 2)} - Bboxes: {x_min, y_min, x_max, y_max}")
+            # cv2.rectangle(img_copy, (x_min, y_min), (x_max, y_max), (0, 255, 0), 2)
+            # label = f"{class_name[int(cls_val)]} ({round(conf_val.item(), 2)})"
+            # cv2.putText(img_copy, label, (x_min, y_min - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
     
     return img_copy
 
