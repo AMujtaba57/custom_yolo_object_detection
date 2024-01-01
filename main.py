@@ -9,13 +9,17 @@ import time
 app = Flask(__name__)
 api = Api(app)
 
-class_name = [
-            "Flute", "Guitar", "Drum", "Piano", "Saxophone", "Trumpet", "Watercraft", "Rose", "Houseplant",
+class_name=["Flute", "Guitar", "Drum", "Piano", "Saxophone", "Trumpet", "Watercraft", "Rose", "Houseplant",
             "Flowerpot", "Baseball bat", "Ball", "Tennis racket", "Tennis ball", "Table tennis racket", "Cricket ball",
-            "Bicycle helmet", "Helmet", "Football helmet", "Book", "Shirt", "Jacket", "Footwear", "Watch", "Handbag",
+            "Bicycle helmet", "Helmet", "Football helmet", "Book", "Shirt", "Jacket", "Footwear", "Watch", "Handbag", 
             "Luggage and bags", "Sandal", "Necklace", "Table", "Chair", "Couch", "Wall clock", "Lamp", "Sofa bed", "Bed",
-            "Stool", "Cat", "Dog", "Mouse", "Car", "Motorcycle"
-        ]
+            "Stool", "Cat", "Dog", "Mouse", "Car", "Motorcycle",  
+            "Television", "Mobile phone", "Laptop", "Hair dryer", "Washing machine", "Microwave oven",
+            "Gas stove", "Toaster", "Kettle", "Coffee table", "Coffeemaker", "Grinder", "Clock", "Mechanical fan", 
+            "Ceiling fan", "Dishwasher", "Printer", "Cassette deck", "Light bulb", "Computer keyboard", 
+            "Computer mouse", "Headphones", "Corded phone",
+            "Banjo"
+            ]
 
 onnx_model_path = "models/best.onnx"
 yolov8_detector = YOLOv8(onnx_model_path, conf_thres=0.2, iou_thres=0.3)
