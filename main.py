@@ -5,9 +5,11 @@ from yolov8 import YOLOv8
 from ultralytics import YOLO
 import numpy as np
 import time
+from flask_cors import CORS
 
 app = Flask(__name__)
 api = Api(app)
+CORS(app)
 
 class_name=["Flute", "Guitar", "Drum", "Piano", "Saxophone", "Trumpet", "Watercraft", "Rose", "Houseplant",
             "Flowerpot", "Baseball bat", "Ball", "Tennis racket", "Tennis ball", "Table tennis racket", "Cricket ball",
