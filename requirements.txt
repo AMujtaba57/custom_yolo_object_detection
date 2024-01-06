@@ -5,4 +5,6 @@ Requests
 streamlit
 torch
 ultralytics
-libgl1-mesa-glx
+flask
+flask_restful
+onnxruntime
