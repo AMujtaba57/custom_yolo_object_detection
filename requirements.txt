@@ -8,3 +8,4 @@ ultralytics
 flask
 flask_restful
 onnxruntime
+flask_cors
